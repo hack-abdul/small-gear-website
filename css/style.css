@@ -53,7 +53,7 @@
 
 body {
   background-color: var(--bg-primary);
-  background-image: var(--bg-gradient);
+
   color: var(--text-main);
   font-family: var(--font-body);
   line-height: 1.65;
@@ -153,6 +153,7 @@ ul {
   top: 0;
   left: 0;
   width: 100%;
+  max-width: 100vw;
   height: var(--nav-height);
   display: flex;
   align-items: center;
@@ -160,6 +161,8 @@ ul {
   transition: var(--transition);
   background: transparent;
   border-bottom: 1px solid transparent;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .navbar.scrolled {
@@ -175,7 +178,10 @@ ul {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  max-width: 100%;
   padding: 0 24px;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .brand-logo {
@@ -188,19 +194,17 @@ ul {
   letter-spacing: -0.5px;
 }
 
-.logo-icon {
-  width: 38px;
+.logo-img {
   height: 38px;
-  background: var(--gradient-accent);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #000;
-  font-weight: 800;
-  box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
-  position: relative;
-  overflow: hidden;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 12px rgba(0, 242, 254, 0.4));
+  transition: transform 0.3s ease;
+}
+
+.brand-logo:hover .logo-img {
+  transform: scale(1.05);
 }
 
 .logo-icon::after {
@@ -221,6 +225,67 @@ ul {
   display: flex;
   gap: 36px;
   align-items: center;
+}
+/* Early mobile nav hiding — must be placed here to override base flex display */
+@media (max-width: 640px) {
+  .navbar {
+    max-width: 100vw !important;
+    /* NO overflow:hidden here — it was clipping the hamburger button */
+  }
+  .nav-container {
+    max-width: 100% !important;
+    padding: 0 14px !important;
+    box-sizing: border-box !important;
+    overflow: visible !important; /* allow all children to render */
+    flex-wrap: nowrap !important;
+  }
+  /* Brand logo stays on left and doesn't shrink */
+  .brand-logo {
+    flex-shrink: 0 !important;
+  }
+  .nav-links {
+    display: none !important;
+  }
+  .nav-actions {
+    display: none !important;
+  }
+  /* Push the toggle+hamburger pair to the far right */
+  .nav-theme-toggle {
+    margin-left: auto !important;
+    margin-right: 10px !important;  /* gap between toggle and hamburger */
+    flex-shrink: 0 !important;
+  }
+  .mobile-menu-toggle {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: transparent !important;
+    border: none !important;
+    cursor: pointer !important;
+    z-index: 2001 !important;
+    padding: 6px !important;
+    width: 44px !important;
+    height: 44px !important;
+    flex-shrink: 0 !important;
+    margin-left: 0 !important;
+  }
+  body.light-theme .mobile-menu-toggle {
+    color: #0f172a !important;
+  }
+  body:not(.light-theme) .mobile-menu-toggle {
+    color: #ffffff !important;
+  }
+  .mobile-menu-toggle svg {
+    display: block !important;
+    width: 26px !important;
+    height: 26px !important;
+    fill: none !important;
+    pointer-events: none !important;
+  }
+  .mobile-menu-toggle svg path {
+    stroke: currentColor !important;
+    stroke-width: 2.5px !important;
+  }
 }
 
 .nav-links a {
@@ -1476,5 +1541,714 @@ ul {
     flex-direction: column;
     gap: 20px;
     text-align: center;
+  }
+}
+
+/* ==========================================================================
+   LIGHT THEME DESIGN SYSTEM (Inspired by official portfolio)
+   ========================================================================== */
+body.light-theme {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-gradient: none;
+  
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-bg-hover: rgba(255, 255, 255, 0.95);
+  --glass-border: rgba(15, 23, 42, 0.08);
+  --glass-border-glow: rgba(37, 99, 235, 0.55);
+  
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --text-dim: #64748b;
+  
+  --neon-blue: #2563eb;
+  --electric-purple: #7c3aed;
+  --soft-cyan: #0ea5e9;
+  --vibrant-magenta: #ec4899;
+}
+
+/* Disable transition animations during initial page load to prevent theme flashes */
+.preload, .preload * {
+  transition: none !important;
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+}
+
+/* Silky-smooth theme transition (ease-out-expo curve) across all elements */
+body, .navbar, .project-card, .service-card, .benefit-item, .testimonial-card, .cta-container, 
+p, h1, h2, h3, h4, h5, h6, span, a, iframe, button, .timeline-track, .timeline-dot, .vertical-theme-toggle {
+  transition: background-color 1.0s cubic-bezier(0.16, 1, 0.3, 1),
+              color 1.0s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 1.0s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 1.0s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 1.0s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 1.0s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Fix Hero Title Gradient invisibility in light mode */
+body.light-theme .hero-title {
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  -webkit-text-fill-color: initial !important;
+  color: var(--text-main) !important;
+}
+
+/* Fix Testimonials and Quotes invisibility in light mode */
+body.light-theme .quote-text,
+body.light-theme .testi-hero-card .quote-text {
+  color: var(--text-main) !important;
+}
+
+/* Invert all Spline 3D WebGL scenes except Nexbot (.robo-light-filter) and Boxes Hover (.no-invert) */
+body.light-theme iframe[src*="spline.design"]:not(.robo-light-filter):not(.no-invert) {
+  filter: invert(1) hue-rotate(180deg) !important;
+  mix-blend-mode: multiply !important;
+}
+
+/* For Nexbot and Boxes Hover, do not apply invert or multiply, keep them black/original */
+body.light-theme iframe.no-invert,
+body.light-theme iframe.robo-light-filter:not(.robo-light-filter) {
+  filter: none !important;
+  mix-blend-mode: normal !important;
+}
+
+body.light-theme iframe.robo-light-filter {
+  filter: url(#light-mode-robo-filter) !important;
+  mix-blend-mode: multiply !important;
+}
+
+/* Clean transparent backdrops for light theme robot container */
+body.light-theme .hero-visual-reserved {
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.09) 0%, rgba(124, 58, 237, 0.05) 55%, transparent 75%) !important;
+  border-radius: 50% !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Keep the Boxes Hover section solid black only even in White Mode */
+body.light-theme .boxes-hover-spline-section {
+  background: #000000 !important; /* solid black band across the page */
+}
+
+body.light-theme .boxes-hover-spline-container {
+  background: transparent !important; /* remove light gradient from behind boxes hover */
+}
+
+/* SVG Triangle Divider styling for Boxes Hover Section in Light Mode */
+.boxes-triangle-divider {
+  display: none; /* hidden in dark mode */
+}
+
+body.light-theme .boxes-triangle-divider {
+  display: block !important;
+  position: absolute;
+  bottom: -1px; /* slightly overlap to prevent seam lines */
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+body.light-theme .boxes-triangle-divider svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 100px; /* increased to 100px for a very steep, dramatic diagonal triangle slope */
+}
+
+body.light-theme .boxes-triangle-divider path {
+  fill: var(--bg-primary) !important; /* matches next section background */
+}
+
+/* Induce glowing, subtle background gradients behind inverted 3D containers in Light Mode */
+body.light-theme .services-spline-container {
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, rgba(124, 58, 237, 0.05) 50%, transparent 70%) !important;
+}
+
+body.light-theme .why-us-spline-container {
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.08) 0%, rgba(124, 58, 237, 0.04) 50%, transparent 70%) !important;
+}
+
+body.light-theme .testimonials-spline-title {
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.1) 0%, rgba(37, 99, 235, 0.05) 55%, transparent 75%) !important;
+}
+
+/* Unified Royal Blue glowing card hover effects in Light Mode */
+body.light-theme .project-card:hover,
+body.light-theme .service-card:hover,
+body.light-theme .testimonial-card:hover {
+  border-color: rgba(37, 99, 235, 0.45) !important; /* Royal Blue */
+  box-shadow: 0 20px 40px rgba(37, 99, 235, 0.12), 0 0 20px rgba(37, 99, 235, 0.06) !important;
+}
+
+/* Scrolled Navbar light mode theme resolution - using a beautiful light blue-white glassmorphic background */
+body.light-theme .navbar.scrolled {
+  background: rgba(240, 246, 255, 0.85) !important;
+  border-bottom: 1px solid rgba(37, 99, 235, 0.12) !important;
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.05) !important;
+}
+
+body.light-theme .nav-links a:hover,
+body.light-theme .nav-links a.active {
+  text-shadow: none !important;
+}
+
+/* Footer light mode theme resolution - using a beautiful light blue-white background */
+body.light-theme .footer {
+  background: #f0f6ff !important;
+  border-top: 1px solid rgba(37, 99, 235, 0.12) !important;
+}
+
+/* CTA / Contact Container - glowing light blue-to-pink gradient in Light Mode */
+body.light-theme .cta-container {
+  background: linear-gradient(135deg, rgba(147, 197, 253, 0.25) 0%, rgba(253, 164, 175, 0.25) 100%) !important;
+  border: 1px solid rgba(37, 99, 235, 0.2) !important;
+  box-shadow: 0 20px 40px rgba(37, 99, 235, 0.05), 0 0 30px rgba(253, 164, 175, 0.1) !important;
+}
+
+body.light-theme .cta-container::after {
+  background: radial-gradient(circle at center, rgba(37, 99, 235, 0.08) 0%, transparent 60%) !important;
+}
+
+body.light-theme .btn-glow {
+  color: #ffffff !important;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3) !important;
+}
+
+body.light-theme .btn-glow:hover {
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.45) !important;
+}
+
+body.light-theme .btn-outline {
+  background: rgba(15, 23, 42, 0.04) !important;
+  border: 1px solid rgba(15, 23, 42, 0.12) !important;
+  color: var(--text-main) !important;
+}
+
+body.light-theme .btn-outline:hover {
+  background: rgba(15, 23, 42, 0.08) !important;
+  border-color: var(--neon-blue) !important;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.15) !important;
+}
+
+body.light-theme .project-title,
+body.light-theme .step-title,
+body.light-theme .benefit-title,
+body.light-theme .client-info h4,
+body.light-theme .cta-title,
+body.light-theme .footer-col h5,
+body.light-theme .trust-logo-item {
+  color: var(--text-main) !important;
+}
+
+body.light-theme .social-icon {
+  border-color: var(--glass-border) !important;
+  color: var(--text-muted) !important;
+}
+
+body.light-theme .social-icon:hover {
+  color: #ffffff !important;
+}
+
+/* Light mode expanded background glows & auroras */
+body.light-theme .bg-orb {
+  opacity: 0.85 !important;
+  filter: blur(140px) !important;
+  mix-blend-mode: normal !important; /* switch to normal for true glowing overlay */
+}
+
+body.light-theme .orb-1 {
+  width: 75vw !important;
+  height: 75vw !important;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.07) 0%, transparent 70%) !important;
+}
+
+body.light-theme .orb-2 {
+  width: 65vw !important;
+  height: 65vw !important;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.07) 0%, transparent 70%) !important;
+}
+
+body.light-theme .orb-3 {
+  width: 70vw !important;
+  height: 70vw !important;
+  background: radial-gradient(circle, rgba(244, 63, 94, 0.06) 0%, transparent 70%) !important;
+}
+
+/* Body pseudo-elements for 2 additional massive glowing auroras in Light Mode (top/bottom) */
+body.light-theme::before {
+  content: '' !important;
+  position: fixed !important;
+  top: -20%;
+  left: 15%;
+  width: 80vw;
+  height: 80vw;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.08) 0%, transparent 70%) !important;
+  z-index: -2 !important;
+  pointer-events: none !important;
+  filter: blur(140px) !important;
+  opacity: 1 !important;
+}
+
+body.light-theme::after {
+  content: '' !important;
+  position: fixed !important;
+  bottom: -20%;
+  right: 15%;
+  width: 80vw;
+  height: 80vw;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.07) 0%, transparent 70%) !important;
+  z-index: -2 !important;
+  pointer-events: none !important;
+  filter: blur(140px) !important;
+  opacity: 1 !important;
+}
+
+/* Timeline light theme adjustments */
+body.light-theme .timeline-track {
+  background: rgba(15, 23, 42, 0.08) !important;
+}
+
+body.light-theme .timeline-dot {
+  background: var(--bg-secondary) !important;
+  border-color: var(--glass-border) !important;
+  color: var(--text-main) !important;
+}
+
+body.light-theme .timeline-step.active .timeline-dot {
+  background: var(--gradient-neon) !important;
+  color: #ffffff !important;
+}
+
+/* Vertical Theme Toggle Switch Widget - placed just below the Get Started CTA button on the right */
+.vertical-theme-toggle {
+  position: fixed;
+  top: 96px;
+  right: 28px;
+  width: 32px;
+  height: 72px;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 0;
+  z-index: 1000;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  user-select: none;
+}
+
+body.light-theme .vertical-theme-toggle {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(15, 23, 42, 0.08);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.08);
+}
+
+.toggle-slider {
+  position: absolute;
+  top: 4px;
+  left: 3px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--gradient-neon);
+  box-shadow: 0 2px 10px rgba(0, 242, 254, 0.4);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.6s !important;
+  z-index: 1;
+}
+
+/* Slide handle positions */
+body.light-theme .toggle-slider {
+  transform: translateY(38px);
+  background: var(--neon-blue);
+  box-shadow: 0 2px 10px rgba(37, 99, 235, 0.4);
+}
+
+.toggle-option {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-dim);
+  z-index: 2;
+  transition: color 0.3s;
+}
+
+/* Option active colors */
+body:not(.light-theme) .dark-opt {
+  color: #ffffff !important;
+}
+
+body.light-theme .light-opt {
+  color: #ffffff !important;
+}
+
+/* Ensure navbar active state links don't have text shadows in light mode */
+body.light-theme .nav-links a.active {
+  color: var(--neon-blue) !important;
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   MOBILE MENU & GENERAL RESPONSIVENESS OVERRIDES
+   ========================================================================== */
+html, body {
+  width: 100%;
+  max-width: 100% !important;
+  overflow-x: hidden !important; /* Hard block all horizontal scroll leaks */
+}
+
+.mobile-menu-toggle {
+  display: none; /* hidden on desktop */
+}
+
+body.menu-open {
+  overflow: hidden !important; /* freeze page scroll when menu drawer is open */
+}
+
+@media (max-width: 640px) {
+  .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    box-sizing: border-box !important;
+  }
+
+  .mobile-menu-toggle {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: transparent !important;
+    border: none !important;
+    cursor: pointer !important;
+    z-index: 2000 !important; /* Ensures it sits above other components */
+    padding: 6px !important;
+    width: 40px !important;
+    height: 40px !important;
+    position: relative !important;
+  }
+  
+  /* Fallback raw hex colors to bypass text-main inheritance issues */
+  body.light-theme .mobile-menu-toggle {
+    color: #0f172a !important;
+  }
+  body:not(.light-theme) .mobile-menu-toggle {
+    color: #ffffff !important;
+  }
+
+  .mobile-menu-toggle svg {
+    display: block !important;
+    width: 24px !important;
+    height: 24px !important;
+    fill: none !important;
+    pointer-events: none !important;
+  }
+  
+  .mobile-menu-toggle svg path {
+    stroke: currentColor !important; /* Inherits explicit color set above */
+    stroke-width: 2.5px !important;
+    display: block !important;
+  }
+
+  /* Convert navigation links into a glassmorphic vertical overlay drawer */
+  .nav-links {
+    display: none !important; /* hidden by default */
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background: rgba(5, 3, 10, 0.98) !important; /* deep dark glass background */
+    backdrop-filter: blur(25px) !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 28px !important;
+    z-index: 999 !important;
+    padding: 40px !important;
+    margin: 0 !important;
+    list-style: none !important;
+  }
+
+  body.light-theme .nav-links {
+    background: rgba(248, 250, 252, 0.98) !important; /* light slate glass background */
+  }
+
+  .nav-links.active {
+    display: flex !important;
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links a {
+    font-size: 1.6rem !important;
+    font-weight: 600 !important;
+    display: block;
+    padding: 12px;
+    color: var(--text-main) !important;
+    transition: color 0.3s, transform 0.3s;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: var(--neon-blue) !important;
+    transform: scale(1.05);
+  }
+
+  /* Hide Desktop Nav Action Buttons on mobile to save space */
+  .nav-actions {
+    display: none !important;
+  }
+
+  /* Compact theme toggle switch position on mobile views */
+  .vertical-theme-toggle {
+    top: 84px !important;
+    right: 16px !important;
+    transform: scale(0.9) !important;
+    z-index: 900 !important; /* sits below overlay menu */
+  }
+}
+
+/* Testimonials page layout off-screen right-bleed fixes under 860px */
+@media (max-width: 860px) {
+  .testimonials-hero-right {
+    margin-right: 0 !important;
+    height: 300px !important;
+    overflow: hidden !important;
+  }
+
+  .testimonials-spline-title {
+    right: 0 !important;
+    position: relative !important;
+    height: 100% !important;
+    width: 100% !important;
+  }
+}
+
+/* Spline Canvas and Section Heights overrides for mobile viewports */
+@media (max-width: 768px) {
+  .boxes-hover-spline-section {
+    height: 380px !important; /* compact height for boxes spline */
+  }
+
+  .boxes-hover-spline-container {
+    height: 100% !important;
+  }
+
+  .boxes-triangle-divider svg {
+    height: 60px !important; /* scale triangle height down */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-visual-reserved {
+    height: 320px !important; /* scale down hero robot canvas size */
+  }
+
+  .section-header {
+    margin-bottom: 40px !important;
+  }
+
+  .section-title {
+    font-size: 2.0rem !important;
+  }
+
+  .hero-title {
+    font-size: 2.1rem !important;
+    line-height: 1.3 !important;
+  }
+
+  .cta-title {
+    font-size: 1.8rem !important;
+  }
+
+  .cta-container {
+    padding: 40px 20px !important;
+  }
+  
+  .services-spline-container,
+  .why-us-spline-container {
+    height: 240px !important; /* shrink inner page splines on small screens */
+  }
+
+  .testimonials-hero-right {
+    height: 220px !important;
+  }
+
+  /* Shrink & Wrap Hero Badge on small viewports */
+  .badge {
+    display: inline-flex !important;
+    font-size: 0.7rem !important;
+    letter-spacing: 0.5px !important;
+    padding: 4px 10px !important;
+    white-space: normal !important;
+    text-align: center !important;
+    max-width: 100% !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Stack Hero Call-to-Action buttons vertically on small screens */
+  .hero-actions {
+    flex-direction: column !important;
+    gap: 12px !important;
+    width: 100% !important;
+    margin-bottom: 40px !important;
+  }
+
+  .hero-actions .btn {
+    width: 100% !important;
+    text-align: center !important;
+    justify-content: center !important;
+    font-size: 0.95rem !important;
+    padding: 14px 24px !important;
+  }
+
+  /* Compact Trust Logos Grid spacing */
+  .trust-logos {
+    gap: 12px 18px !important;
+  }
+
+  .trust-logo-item {
+    font-size: 0.85rem !important;
+    letter-spacing: 1px !important;
+  }
+
+  /* Shrink Timeline layout to fit small screens */
+  .timeline-step {
+    grid-template-columns: 36px 1fr !important;
+    gap: 16px !important;
+  }
+
+  .timeline-dot {
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 0.9rem !important;
+  }
+
+  .timeline-content {
+    padding: 16px 20px !important;
+  }
+}
+
+/* Micro-device refinements for Galaxy Fold and small screens */
+@media (max-width: 380px) {
+  .brand-logo span {
+    font-size: 1.15rem !important;
+  }
+  
+  .logo-img {
+    height: 32px !important;
+  }
+
+  .hero-title {
+    font-size: 1.8rem !important;
+  }
+}
+
+/* ---- Mobile: toggle pill sits inline in navbar row — HORIZONTAL ---- */
+@media (max-width: 640px) {
+  /* Safety: hide any stray fixed toggle that's not inside nav */
+  .vertical-theme-toggle:not(.nav-theme-toggle) {
+    display: none !important;
+  }
+
+  /* Horizontal pill inside the navbar row */
+  .nav-theme-toggle {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    /* Horizontal dimensions: wide and short */
+    width: 62px !important;
+    height: 28px !important;
+    /* Switch flex to row so icons sit left/right */
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 0 4px !important;
+    flex-shrink: 0 !important;
+    z-index: 2002 !important;
+    transform: none !important;
+    border-radius: 20px !important;
+  }
+
+  /* Slider ball — moves LEFT to RIGHT */
+  .nav-theme-toggle .toggle-slider {
+    position: absolute !important;
+    width: 20px !important;
+    height: 20px !important;
+    top: 3px !important;
+    left: 3px !important;
+    transform: translateX(0) !important;   /* dark mode: left side */
+  }
+
+  body.light-theme .nav-theme-toggle .toggle-slider {
+    transform: translateX(34px) !important; /* light mode: right side */
+    background: var(--neon-blue) !important;
+  }
+
+  .nav-theme-toggle .toggle-option {
+    width: 20px !important;
+    height: 20px !important;
+    flex-shrink: 0 !important;
+  }
+}
+
+/* ==========================================================================
+   MOBILE-ONLY TOP BANNER
+   ========================================================================== */
+.mobile-top-banner {
+  display: none; /* hidden on desktop */
+}
+
+@media (max-width: 640px) {
+  .mobile-top-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 8px 16px;
+    background: linear-gradient(90deg, rgba(37,99,235,0.18) 0%, rgba(124,58,237,0.18) 100%);
+    border-bottom: 1px solid rgba(99, 102, 241, 0.25);
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--text-muted, #94a3b8);
+    letter-spacing: 0.01em;
+    text-align: center;
+    line-height: 1.4;
+    position: relative;
+    z-index: 1200;
+    box-sizing: border-box;
+  }
+  body.light-theme .mobile-top-banner {
+    background: linear-gradient(90deg, rgba(37,99,235,0.08) 0%, rgba(124,58,237,0.08) 100%);
+    border-bottom: 1px solid rgba(37,99,235,0.15);
+    color: #475569;
+  }
+  .mobile-top-banner strong {
+    color: var(--neon-blue, #2563eb);
+    font-weight: 700;
+  }
+  .mobile-banner-icon {
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+  /* Push the navbar down to account for the banner height on mobile */
+  .navbar {
+    top: 37px !important; /* approx banner height */
   }
 }

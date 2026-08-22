@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Showcase &amp; Case Studies | Small Gear Inc.</title>
+  <meta name="description" content="Explore Small Gear Inc.'s portfolio: 29 custom software systems, ERPs, CRMs, mobile applications, and web platforms built for real-world operations since 2016.">
+  <link rel="stylesheet" href="css/style.css?v=35.0">
+  <style>
+    .filter-btn {
+      padding: 8px 24px;
+      font-size: 0.9rem;
+      border-radius: 50px;
+      border: 1px solid rgba(0, 242, 254, 0.3);
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: linear-gradient(135deg, var(--neon-blue) 0%, var(--electric-purple) 100%);
+      color: #FFFFFF;
+      box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
+      border-color: transparent;
+    }
+    .portfolio-grid {
+      transition: all 0.5s ease;
+    }
+    .project-card.hidden {
+      display: none !important;
+    }
+    .project-link {
+      margin-top: 15px;
+      font-size: 0.85rem;
+      color: var(--neon-blue);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 600;
+      transition: gap 0.2s ease;
+    }
+    .project-link:hover {
+      gap: 10px;
+      color: #FFFFFF;
+    }
+
+    /* Download Official Portfolio Button */
+    .portfolio-download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(135deg, var(--neon-blue, #2563eb) 0%, var(--electric-purple, #7c3aed) 100%);
+      color: #ffffff;
+      border: none;
+      border-radius: 50px;
+      padding: 18px 40px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+      cursor: pointer;
+      letter-spacing: 0.01em;
+      box-shadow: 0 12px 40px rgba(37, 99, 235, 0.35), 0 0 0 1px rgba(255,255,255,0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, gap 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .portfolio-download-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .portfolio-download-btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(37, 99, 235, 0.45), 0 0 0 1px rgba(255,255,255,0.12);
+      gap: 16px;
+    }
+    .portfolio-download-btn:active {
+      transform: translateY(-1px);
+    }
+    body.light-theme .portfolio-download-btn {
+      box-shadow: 0 12px 40px rgba(37, 99, 235, 0.25), 0 4px 12px rgba(124, 58, 237, 0.15);
+    }
+    @media (max-width: 540px) {
+      .portfolio-download-btn {
+        padding: 14px 24px;
+        font-size: 0.95rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+        border-radius: 16px;
+      }
+    }
+  </style>
+  
+</head>
+<body class="preload">
+  <!-- Mobile-only top banner -->
+  <div class="mobile-top-banner">
+    <span class="mobile-banner-icon">🖥️</span>
+    <span>For the best experience, open on a <strong>desktop browser</strong></span>
+  </div>
+
+  <script>
+    if (localStorage.getItem('theme') === 'light') {
+      document.body.classList.add('light-theme');
+    }
+  </script>
+<!-- STICKY THEME TOGGLE BUTTON -->
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-orb orb-3"></div>
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/logo.png" alt="Small Gear Logo" class="logo-img">
+        <span>Small Gear</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="process.html">Process</a></li>
+        <li><a href="portfolio.html" class="active">Showcase</a></li>
+        <li><a href="why-us.html">Why Us</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+      </ul>
+            <div class="nav-actions" style="display: flex; align-items: center; gap: 16px;">
+        <!-- STICKY THEME TOGGLE BUTTON -->
+        
+        <a href="contact.html" class="btn btn-glow" id="nav-cta">Get Started</a>
+      </div>
+      <!-- Theme Toggle inside nav for mobile -->
+      <div class="vertical-theme-toggle nav-theme-toggle" id="theme-toggle-switch" title="Toggle Theme (Dark / Light)">
+        <div class="toggle-slider"></div>
+        <!-- Hamburger Menu Button for Mobile -->
+      <button class="mobile-menu-toggle" id="mobile-menu-btn" aria-label="Toggle Menu">
+        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16" class="hamburger-icon"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" class="close-icon" style="display: none;"></path>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- PORTFOLIO / PROJECT SHOWCASE -->
+  <section class="section" id="portfolio" style="padding-top: 140px;">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Proven Work</span>
+        <h1 class="section-title">Project Showcase &amp; Portfolio</h1>
+        <p class="section-description">Since 2016, our engineering teams have built highly scalable architectures. Explore our real projects below across mobile apps, enterprise softs, and websites.</p>
+      </div>
+
+      <!-- ===== DOWNLOAD OFFICIAL PORTFOLIO BUTTON ===== -->
+      <div style="display: flex; justify-content: center; margin: 0 0 48px 0;">
+        <button onclick="downloadPortfolio()" class="portfolio-download-btn">
+          <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="flex-shrink:0;">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"
+              d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/>
+          </svg>
+          <span>Download Our Official Portfolio</span>
+          <span style="font-size:0.8rem; opacity:0.8; font-weight:500;">&nbsp;· Opens in browser + saves file</span>
+        </button>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="portfolio-filters" style="display: flex; justify-content: center; gap: 15px; margin-bottom: 50px; flex-wrap: wrap;">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
+        <button class="filter-btn" data-filter="software">Enterprise Softs</button>
+        <button class="filter-btn" data-filter="website">Websites</button>
+      </div>
+
+      <div class="portfolio-grid">
+        
+        <!-- ==================== MOBILE APPS ==================== -->
+        <div class="project-card reveal" data-category="mobile">
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag">Mobile App</span>
+              <span class="project-tag">Flutter</span>
+            </div>
+            <h3 class="project-title">Hyderamart (Customer App)</h3>
+            <p class="project-desc">Hyperlocal e-commerce application for customers, featuring real-time catalog browsing, shopping cart, and live order tracking. Deployed on Android.</p>
+            <a href="https://play.google.com/store/apps/details?id=com.hyderamart.customerappNew" target="_blank" class="project-link">View on Play Store &rarr;</a>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="mobile">
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag">Mobile App</span>
+              <span class="project-tag">Flutter</span>
+            </div>
+            <h3 class="project-title">Hyderamart (Driver App)</h3>
+            <p class="project-desc">Driver and delivery agent application featuring delivery assignment alerts, optimized navigation routes, and task completion confirmation. Deployed on Android.</p>
+            <a href="https://play.google.com/store/apps/details?id=com.hyderamart.driverappNew" target="_blank" class="project-link">View on Play Store &rarr;</a>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="mobile">
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag">Mobile App</span>
+              <span class="project-tag">Ride-Hailing</span>
+            </div>
+            <h3 class="project-title">Hike Cab</h3>
+            <p class="project-desc">Ride-hailing application with real-time maps, matching drivers and passengers, route pricing calculations, and digital wallet support. Deployed on Android.</p>
+            <a href="https://play.google.com/store/apps/details?id=com.softHunter.hikeapp" target="_blank" class="project-link">View on Play Store &rarr;</a>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="mobile">
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag">Mobile App</span>
+              <span class="project-tag">Flutter</span>
+            </div>
+            <h3 class="project-title">Taxi Wale (Android)</h3>
+            <p class="project-desc">Customer cab booking application on Android with live map navigation, driver details, ride history, and automatic fare calculation.</p>
+            <a href="https://play.google.com/store/apps/details?id=com.taxiwale.customers" target="_blank" class="project-link">View on Play Store &rarr;</a>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="mobile">
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag">Mobile App</span>
+              <span class="project-tag">iOS</span>
+            </div>
+            <h3 class="project-title">Taxi Wale (iOS)</h3>
+            <p class="project-desc">Native Apple iOS customer cab booking client, featuring secure payments, ride sharing estimation, and instant feedback. Published on Apple App Store.</p>
+            <a href="https://apps.apple.com/in/app/taxiwale-customers/id6756638619" target="_blank" class="project-link">View on App Store &rarr;</a>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="mobile">
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag">Mobile App</span>
+              <span class="project-tag">Voting</span>
+            </div>
+            <h3 class="project-title">Max Vot (Android)</h3>
+            <p class="project-desc">A highly secure voting application on Android, built for corporate and organizational elections with voter authentication and real-time tallies.</p>
+            <a href="https://play.google.com/store/apps/details?id=com.mgnapps.maxvot&hl=en_IN" target="_blank" class="project-link">View on Play Store &rarr;</a>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="mobile">
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag">Mobile App</span>
+              <span class="project-tag">Voting</span>
+            </div>
+            <h3 class="project-title">Max Vot (iOS)</h3>
+            <p class="project-desc">Official iOS application for the Max Vot secure election portal. Features dynamic voter registry, voter validation, and immutable logs.</p>
+            <a href="https://apps.apple.com/in/app/maxvot/id6450279075" target="_blank" class="project-link">View on App Store &rarr;</a>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="mobile">
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag">Mobile App</span>
+              <span class="project-tag">Food Delivery</span>
+            </div>
+            <h3 class="project-title">Naurio</h3>
+            <p class="project-desc">Food ordering and tracking application on Android. Seamless vendor directory browsing, cart processing, and fast real-time status updates.</p>
+            <a href="https://play.google.com/store/apps/details?id=com.infybright.shaupizaa&hl=en_IN" target="_blank" class="project-link">View on Play Store &rarr;</a>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="mobile">
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag">Mobile App</span>
+              <span class="project-tag">Handyman</span>
+            </div>
+            <h3 class="project-title">Doorstep</h3>
+            <p class="project-desc">Android application connecting local users with household handyman service providers. Deployed on Play Store with rating systems and booking engines.</p>
+            <a href="https://play.google.com/store/apps/details?id=com.doorstephub.customer" target="_blank" class="project-link">View on Play Store &rarr;</a>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="mobile">
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag">Mobile App</span>
+              <span class="project-tag">CRM</span>
+            </div>
+            <h3 class="project-title">Togile CRM (Android)</h3>
+            <p class="project-desc">Android mobile CRM client for sales agents to manage prospects, log meetings, assign tasks, and capture leads on the go.</p>
+            <a href="https://play.google.com/store/apps/details?id=com.togile.crm&hl=en_US" target="_blank" class="project-link">View on Play Store &rarr;</a>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="mobile">
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag">Mobile App</span>
+              <span class="project-tag">CRM</span>
+            </div>
+            <h3 class="project-title">Togile CRM (iOS)</h3>
+            <p class="project-desc">iOS mobile application for the Togile CRM platform, enabling high-speed prospect tracking, dashboard reviews, and activity history checks.</p>
+            <a href="https://apps.apple.com/in/app/togile/id6737191495" target="_blank" class="project-link">View on App Store &rarr;</a>
+          </div>
+        </div>
+
+        <!-- ==================== ENTERPRISE SOFTS ==================== -->
+        <div class="project-card reveal" data-category="software">
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag">CRM</span>
+              <span class="project-tag">Laravel</span>
+            </div>
+            <h3 class="project-title">Peoples Choice CRM</h3>
+            <p class="project-desc">Enterprise-grade customer relationship manager built on Laravel to centralize, process, and optimize business client interactions and pipelines.</p>
+            <a href="https://crmpeopleschoice.com/login" target="_blank" class="project-link">Launch Portal &rarr;</a>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="software">
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag">HRM</span>
+              <span class="project-tag">Laravel</span>
+            </div>
+            <h3 class="project-title">Zest Nexus HRM</h3>
+            <p class="project-desc">Unified human resource management dashboard managing candidate pipelines, onboarding logs, payroll calculations, and leaves.</p>
+            <a href="https://app.zestnexus.com/login" target="_blank" class="project-link">Launch Portal &rarr;</a>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="software">
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag">ERP</span>
+              <span class="project-tag">Inventory</span>
+            </div>
+            <h3 class="project-title">ERP Hyderamart</h3>
+            <p class="project-desc">Internal ERP dashboard for managing massive inventory systems, warehouse stocks, purchase orders, and merchant billing details.</p>
+            <a href="https://admin.hyderamart.in/erp/inventory" target="_blank" class="project-link">Launch Portal &rarr;</a>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="software">
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag">Admin Panel</span>
+              <span class="project-tag">E-commerce</span>
+            </div>
+            <h3 class="project-title">Admin Panel Hyderamart</h3>
+            <p class="project-desc">Super admin command center overseeing the customer apps, driver routing logistics, discount engine, and sales reports.</p>
+            <a href="http://admin.hyderamart.in" target="_blank" class="project-link">Launch Portal &rarr;</a>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="software">
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag">ERP</span>
+              <span class="project-tag">Business Suite</span>
+            </div>
+            <h3 class="project-title">Togile ERP Portal</h3>
+            <p class="project-desc">Cloud-based enterprise ERP system running client databases, document templates, invoicing flows, and projects.</p>
+            <a href="https://app.togile.com/" target="_blank" class="project-link">Launch Portal &rarr;</a>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="software">
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag">CMS</span>
+              <span class="project-tag">PHP</span>
+            </div>
+            <h3 class="project-title">Yashumis College System</h3>
+            <p class="project-desc">Academic administrative system managing student admissions, online fee processing, course registrations, and grade lists.</p>
+            <a href="https://yashumis.in/admin.html" target="_blank" class="project-link">Launch Portal &rarr;</a>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="software">
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag">CRM</span>
+              <span class="project-tag">Tourism</span>
+            </div>
+            <h3 class="project-title">Jungle Safari CRM</h3>
+            <p class="project-desc">CRM designed for tourism agencies, facilitating booking management, vehicle assignment, and guide registries for Safari India.</p>
+            <a href="https://crm.junglesafariindia.in/dashboard/login" target="_blank" class="project-link">Launch Portal &rarr;</a>
+          </div>
+        </div>
+
+        <!-- ==================== WEBSITES ==================== -->
+        <div class="project-card reveal" data-category="website">
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag">Real Estate</span>
+              <span class="project-tag">Webflow</span>
+            </div>
+            <h3 class="project-title">Kala Mohitra</h3>
+            <p class="project-desc">Responsive website for a premier real estate property dealer. Integrated with maps, inquiry forms, and catalog displays.</p>
+            <a href="https://kmpropertydealer.in/" target="_blank" class="project-link">Visit Website &rarr;</a>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="website">
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag">Real Estate</span>
+              <span class="project-tag">React</span>
+            </div>
+            <h3 class="project-title">Realty Dart</h3>
+            <p class="project-desc">Modern real estate discovery and listing platform with detailed property pages, filters, and fast performance layouts.</p>
+            <a href="https://www.realtydart.com/" target="_blank" class="project-link">Visit Website &rarr;</a>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="website">
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag">Corporate</span>
+              <span class="project-tag">Web Design</span>
+            </div>
+            <h3 class="project-title">Jenika Ventures</h3>
+            <p class="project-desc">Corporate showcase site for Jenika Ventures. Immersive transitions, portfolio sections, and responsive company profiles.</p>
+            <a href="https://www.jenikaventures.com/" target="_blank" class="project-link">Visit Website &rarr;</a>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="website">
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag">Food</span>
+              <span class="project-tag">Restaurant</span>
+            </div>
+            <h3 class="project-title">California Burrito</h3>
+            <p class="project-desc">Brand portal for the popular Mexican restaurant chain California Burrito, featuring custom store locators and visual menus.</p>
+            <a href="https://www.californiaburrito.in/" target="_blank" class="project-link">Visit Website &rarr;</a>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="website">
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag">Food</span>
+              <span class="project-tag">Restaurant</span>
+            </div>
+            <h3 class="project-title">Soy and Curry</h3>
+            <p class="project-desc">Responsive restaurant website with menu catalog, contact integration, and online table booking features.</p>
+            <a href="https://soyandcurry.com/" target="_blank" class="project-link">Visit Website &rarr;</a>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="website">
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag">Legal</span>
+              <span class="project-tag">Corporate</span>
+            </div>
+            <h3 class="project-title">Lex Maven</h3>
+            <p class="project-desc">Clean, professional landing page and portfolio site for Lex Maven law firm. Service highlights and consultation forms.</p>
+            <a href="https://lexmaven.com/" target="_blank" class="project-link">Visit Website &rarr;</a>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="website">
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag">Healthcare</span>
+              <span class="project-tag">Portfolio</span>
+            </div>
+            <h3 class="project-title">Dr Ayushi</h3>
+            <p class="project-desc">Personal brand website for Dr. Ayushi Choudhary. Digital appointment calendars, patient portals, and contact systems.</p>
+            <a href="https://www.draayushichoudhary.com/" target="_blank" class="project-link">Visit Website &rarr;</a>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="website">
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag">Travel</span>
+              <span class="project-tag">Safari</span>
+            </div>
+            <h3 class="project-title">Sa Faris</h3>
+            <p class="project-desc">Destination discovery and safari holiday booking web engine. Tour timelines, pricing models, and inquiry forms.</p>
+            <a href="https://safairs.com/" target="_blank" class="project-link">Visit Website &rarr;</a>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="website">
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag">Personal Brand</span>
+              <span class="project-tag">Consulting</span>
+            </div>
+            <h3 class="project-title">Renu Soni</h3>
+            <p class="project-desc">Responsive consulting portfolio and booking website for Renu Soni. Clean structure, micro-interactions, and simple blogs.</p>
+            <a href="https://renusoni.com/" target="_blank" class="project-link">Visit Website &rarr;</a>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="website">
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag">SaaS Website</span>
+              <span class="project-tag">Web Design</span>
+            </div>
+            <h3 class="project-title">ZestNexus Corporate</h3>
+            <p class="project-desc">Brand portal for Zest Nexus software agency. Dynamic service slides, careers, and active contact inquiry integrations.</p>
+            <a href="https://www.zestnexus.com/" target="_blank" class="project-link">Visit Website &rarr;</a>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="website">
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag">SaaS Website</span>
+              <span class="project-tag">Landing Page</span>
+            </div>
+            <h3 class="project-title">Togile Corporate</h3>
+            <p class="project-desc">Marketing landing page for Togile ERP software suite. Product tour layouts, pricing charts, and sign-up integration.</p>
+            <a href="https://togile.com/" target="_blank" class="project-link">Visit Website &rarr;</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section" id="contact">
+    <div class="container">
+      <div class="cta-container reveal">
+        <h2 class="cta-title">Ready to Build Your Digital Vision?</h2>
+        <p class="cta-desc">Partner with Small Gear Inc. — Mumbai's trusted software engineering firm since 2016. Let's craft scalable, reliable digital solutions together.</p>
+        <div class="cta-btn-wrapper">
+          <a href="contact.html" class="btn btn-glow btn-lg" id="final-cta-btn">
+            <span>Book a Free Consultation</span>
+            <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand-logo">
+          <img src="assets/logo.png" alt="Small Gear Logo" class="logo-img">
+          <span>Small Gear</span>
+        </a>
+        <p>Mumbai-based software engineering firm crafting highly scalable digital architectures since 2016. Building your digital vision — one solution at a time.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="services.html#service-erp">ERP Development</a></li>
+          <li><a href="services.html#service-crm">CRM &amp; HRM Systems</a></li>
+          <li><a href="services.html#service-web">Web Platforms</a></li>
+          <li><a href="services.html#service-mobile">Mobile App Development</a></li>
+          <li><a href="services.html#service-ai">AI &amp; Automation</a></li>
+          <li><a href="services.html#service-blockchain">Blockchain Solutions</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="index.html">About Us</a></li>
+          <li><a href="process.html">Our Process</a></li>
+          <li><a href="portfolio.html">Projects</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
+          <li><a href="contact.html">Careers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Connect</h5>
+        <ul>
+          <li><a href="tel:+919370967779">+91 9370967779</a></li>
+          <li><a href="tel:+919766729490">+91 9766729490</a></li>
+          <li><a href="#">Mira Road (East), Mumbai</a></li>
+          <li><a href="#">LinkedIn</a></li>
+          <li><a href="#">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>&copy; 2026 Small Gear Inc. All rights reserved. Mumbai, India &mdash; Operating since 2016.</div>
+      <div class="social-icons">
+        <a href="#" aria-label="LinkedIn" class="social-icon">in</a>
+        <a href="#" aria-label="Instagram" class="social-icon">&#9898;</a>
+        <a href="#" aria-label="WhatsApp" class="social-icon">&#9990;</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const filters = document.querySelectorAll('.filter-btn');
+      const cards = document.querySelectorAll('.project-card');
+
+      filters.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Update active filter button
+          filters.forEach(f => f.classList.remove('active'));
+          btn.classList.add('active');
+
+          const filterValue = btn.getAttribute('data-filter');
+
+          // Filter card grid
+          cards.forEach(card => {
+            const category = card.getAttribute('data-category');
+            if (filterValue === 'all' || category === filterValue) {
+              card.classList.remove('hidden');
+            } else {
+              card.classList.add('hidden');
+            }
+          });
+        });
+      });
+    });
+
+    function downloadPortfolio() {
+      const filePath = 'Small_Gear_Official_Portfolio.html';
+
+      // 1. Open in a new browser tab
+      window.open(filePath, '_blank', 'noopener,noreferrer');
+
+      // 2. Trigger file download
+      const link = document.createElement('a');
+      link.href = filePath;
+      link.download = 'Small_Gear_Official_Portfolio.html';
+      link.style.display = 'none';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  </script>
+</body>
+</html>

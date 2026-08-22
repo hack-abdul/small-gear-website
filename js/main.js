@@ -1,3 +1,7 @@
+window.addEventListener('load', () => {
+  document.body.classList.remove('preload');
+});
+
 /**
  * SMALL GEAR AI AGENCY - INTERACTIVE ENGINE & ANIMATIONS
  */
@@ -8,6 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initNumberCounters();
   initSplineAmbientParticles();
   initVerticalTimeline();
+  initThemeToggle();
+  initMobileMenu();
 });
 
 /**
@@ -233,5 +239,75 @@ function initSplineAmbientParticles() {
     height = parent.clientHeight;
     canvas.width = width;
     canvas.height = height;
+  });
+}
+
+
+/**
+ * Sticky Theme Toggle Logic (Light / Dark Mode)
+ */
+function initThemeToggle() {
+  const toggleSwitch = document.getElementById('theme-toggle-switch');
+  if (!toggleSwitch) return;
+
+  toggleSwitch.addEventListener('click', () => {
+    const isLight = document.body.classList.toggle('light-theme');
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  });
+}
+
+/**
+ * Mobile Navigation Menu Drawer and Toggle Action
+ */
+function initMobileMenu() {
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const navLinks = document.querySelector('.nav-links');
+  if (!menuBtn || !navLinks) return;
+
+  const hamburgerIcon = menuBtn.querySelector('.hamburger-icon');
+  const closeIcon = menuBtn.querySelector('.close-icon');
+
+  menuBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isActive = navLinks.classList.toggle('active');
+    document.body.classList.toggle('menu-open', isActive);
+
+    if (isActive) {
+      hamburgerIcon.style.display = 'none';
+      closeIcon.style.display = 'block';
+    } else {
+      hamburgerIcon.style.display = 'block';
+      closeIcon.style.display = 'none';
+    }
+  });
+
+  // Close drawer if user clicks outside of nav links
+  document.addEventListener('click', (e) => {
+    if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && !menuBtn.contains(e.target)) {
+      navLinks.classList.remove('active');
+      document.body.classList.remove('menu-open');
+      hamburgerIcon.style.display = 'block';
+      closeIcon.style.display = 'none';
+    }
+  });
+
+  // Close menu if a nav link is clicked
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+      document.body.classList.remove('menu-open');
+      hamburgerIcon.style.display = 'block';
+      closeIcon.style.display = 'none';
+    });
+  });
+
+  // Automatically close drawer on screen width resize past mobile layout
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 640 && navLinks.classList.contains('active')) {
+      navLinks.classList.remove('active');
+      document.body.classList.remove('menu-open');
+      hamburgerIcon.style.display = 'block';
+      closeIcon.style.display = 'none';
+    }
   });
 }

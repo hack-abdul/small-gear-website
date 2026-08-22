@@ -3,12 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Small Gear | AI-Powered Digital Agency & Autonomous Scaling</title>
-  <meta name="description" content="Small Gear is a cutting-edge digital agency offering AI Automation, Digital Marketing, Content Creation, Website Development, and Funnel Building to scale businesses exponentially.">
-  <link rel="stylesheet" href="css/style.css?v=10.0">
-</head>
-<body>
+  <title>Small Gear Inc. | Building Your Digital Vision Since 2016</title>
+  <meta name="description" content="Small Gear Inc. is a Mumbai-based software firm crafting highly scalable digital architectures since 2016. Custom software, ERPs, CRMs, mobile apps, AI automation & blockchain solutions.">
+  <link rel="stylesheet" href="css/style.css?v=35.0">
   
+</head>
+<body class="preload">
+  <!-- Mobile-only top banner -->
+  <div class="mobile-top-banner">
+    <span class="mobile-banner-icon">🖥️</span>
+    <span>For the best experience, open on a <strong>desktop browser</strong></span>
+  </div>
+
+  <script>
+    if (localStorage.getItem('theme') === 'light') {
+      document.body.classList.add('light-theme');
+    }
+  </script>
+<!-- SVG Component Transfer Filter for Light Mode Robot -->
+  <svg style="position: absolute; width: 0; height: 0; pointer-events: none;" width="0" height="0">
+    <defs>
+      <filter id="light-mode-robo-filter">
+        <feComponentTransfer>
+          <feFuncR type="table" tableValues="1.0 0.0 0.1 0.85" />
+          <feFuncG type="table" tableValues="1.0 0.0 0.1 0.85" />
+          <feFuncB type="table" tableValues="1.0 0.0 0.1 0.85" />
+        </feComponentTransfer>
+      </filter>
+    </defs>
+  </svg>
+  <!-- STICKY THEME TOGGLE BUTTON -->
   <!-- Ambient Glow Background Orbs -->
   <div class="bg-orb orb-1"></div>
   <div class="bg-orb orb-2"></div>
@@ -17,18 +41,33 @@
   <!-- NAVIGATION -->
   <nav class="navbar" id="navbar">
     <div class="nav-container">
-      <a href="#" class="brand-logo">
-        <div class="logo-icon">SG</div>
+      <a href="index.html" class="brand-logo">
+        <img src="assets/logo.png" alt="Small Gear Logo" class="logo-img">
         <span>Small Gear</span>
       </a>
       <ul class="nav-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#process">Process</a></li>
-        <li><a href="#portfolio">Showcase</a></li>
-        <li><a href="#why-us">Why AI</a></li>
-        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="process.html">Process</a></li>
+        <li><a href="portfolio.html">Showcase</a></li>
+        <li><a href="why-us.html">Why Us</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
       </ul>
-      <a href="#contact" class="btn btn-glow" id="nav-cta">Get Started</a>
+            <div class="nav-actions" style="display: flex; align-items: center; gap: 16px;">
+        <!-- STICKY THEME TOGGLE BUTTON -->
+        
+        <a href="contact.html" class="btn btn-glow" id="nav-cta">Get Started</a>
+      </div>
+      <!-- Theme Toggle inside nav for mobile -->
+      <div class="vertical-theme-toggle nav-theme-toggle" id="theme-toggle-switch" title="Toggle Theme (Dark / Light)">
+        <div class="toggle-slider"></div>
+        <!-- Hamburger Menu Button for Mobile -->
+      <button class="mobile-menu-toggle" id="mobile-menu-btn" aria-label="Toggle Menu">
+        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16" class="hamburger-icon"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" class="close-icon" style="display: none;"></path>
+        </svg>
+      </button>
     </div>
   </nav>
 
@@ -40,35 +79,35 @@
       <div class="hero-content">
         <div class="badge">
           <span class="badge-dot"></span>
-          <span>Next-Gen Autonomous AI Agency</span>
+          <span>Mumbai-Based Software Engineering Firm</span>
         </div>
         
         <h1 class="hero-title" id="main-headline">
-          We Build AI-Powered Digital Experiences <span>That Convert</span>
+          Building Your <span>Digital Vision</span> Since 2016
         </h1>
         
         <p class="hero-subtitle">
-          From high-velocity marketing to autonomous content creation, we help forward-thinking businesses scale exponentially using cutting-edge AI solutions.
+          From custom ERPs and CRMs to mobile apps, AI automations, and blockchain solutions — we engineer highly scalable digital architectures for startups and enterprises alike.
         </p>
         
         <div class="hero-actions">
-          <a href="#contact" class="btn btn-glow btn-lg" id="hero-primary-btn">
-            <span>Get Started</span>
+          <a href="contact.html" class="btn btn-glow btn-lg" id="hero-primary-btn">
+            <span>Start Your Project</span>
             <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
           </a>
-          <a href="#services" class="btn btn-outline btn-lg" id="hero-secondary-btn">
-            <span>View Services</span>
+          <a href="services.html" class="btn btn-outline btn-lg" id="hero-secondary-btn">
+            <span>Our Services</span>
           </a>
         </div>
 
         <!-- Client & Trust Badge -->
         <div class="trust-section">
-          <div class="trust-label">Trusted by over 100+ AI innovators & hyper-growth brands</div>
+          <div class="trust-label">Trusted by businesses across India &amp; globally since 2016</div>
           <div class="trust-logos">
-            <span class="trust-logo-item">SYNTH·AI</span>
-            <span class="trust-logo-item">VECTR_LABS</span>
-            <span class="trust-logo-item">CYBERNETIC</span>
-            <span class="trust-logo-item">QUANTUM·X</span>
+            <span class="trust-logo-item">ERP · CRM</span>
+            <span class="trust-logo-item">MOBILE APPS</span>
+            <span class="trust-logo-item">AI &amp; BLOCKCHAIN</span>
+            <span class="trust-logo-item">WEB PLATFORMS</span>
           </div>
         </div>
       </div>
@@ -76,7 +115,7 @@
       <!-- Right Side: Live Seamless 3D Spline Nexbot Element -->
       <div class="hero-visual-reserved" id="spline-container">
         <!-- Spline 3D Model Iframe (Positioned to reveal full arm span while clipping bottom watermark) -->
-        <iframe src="https://my.spline.design/nexbotrobotcharacterconcept-Cm4UL706iFY7zCsfdQK9206s/" frameborder="0" style="border: none; position: absolute; top: -15px; left: 0; width: 100%; height: calc(100% + 70px); z-index: 2; pointer-events: auto;"></iframe>
+        <iframe src="https://my.spline.design/nexbotrobotcharacterconcept-Cm4UL706iFY7zCsfdQK9206s/" class="robo-light-filter" frameborder="0" style="border: none; position: absolute; top: -15px; left: 0; width: 100%; height: calc(100% + 70px); z-index: 2; pointer-events: auto;"></iframe>
       </div>
 
     </div>
@@ -86,402 +125,97 @@
   <section class="boxes-hover-spline-section reveal">
     <div class="container">
       <div class="boxes-hover-spline-container">
-        <iframe src="https://my.spline.design/boxeshover-uhl3LNIRuNT0rAni1w6tAeUs/" frameborder="0" style="border: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; pointer-events: auto;"></iframe>
+        <iframe src="https://my.spline.design/boxeshover-uhl3LNIRuNT0rAni1w6tAeUs/" class="no-invert" frameborder="0" style="border: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; pointer-events: auto;"></iframe>
       </div>
+    </div>
+    <!-- SVG Triangle Shape Divider (Visible only in Light Mode) -->
+    <div class="boxes-triangle-divider">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,0 L1440,120 L0,120 Z"></path>
+      </svg>
     </div>
   </section>
 
-  <!-- SERVICES SECTION -->
-  <section class="section" id="services">
+  <!-- EXPLORE SMALL GEAR HUB / SECTION TEASERS -->
+  <section class="section" id="hub" style="padding-top: 60px;">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-tag">Core Capabilities</span>
-        <h2 class="section-title">Architecting Digital Superpowers</h2>
-        <p class="section-description">We combine neural networks with elite human ingenuity to deliver unprecedented velocity, conversion rates, and scalable brand architecture.</p>
-      </div>
-
-      <div class="services-grid">
-        
-        <!-- Card 1 (Left Column - Row 1) -->
-        <div class="service-card" id="service-automation">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-          </div>
-          <h3 class="service-title">AI Automation</h3>
-          <p class="service-desc">Transform complex operations into autonomous pipelines. We engineer custom autonomous AI agents that handle client onboarding, predictive analysis, and continuous workflow automation 24/7.</p>
-          <a href="#contact" class="service-link">Explore Capability &rarr;</a>
-        </div>
-
-        <!-- Card 2 (Center Column - Row 1) -->
-        <div class="service-card" id="service-marketing">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-          </div>
-          <h3 class="service-title">Digital Marketing</h3>
-          <p class="service-desc">Deploy predictive AI algorithms that optimize ad spend in real-time across social engines. We capture high-intent buyers with hyper-personalized messaging and machine learning audience targeting.</p>
-          <a href="#contact" class="service-link">Explore Capability &rarr;</a>
-        </div>
-
-        <!-- Card 3 (Right Column - Row 1) -->
-        <div class="service-card" id="service-content">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-          </div>
-          <h3 class="service-title">Content Creation</h3>
-          <p class="service-desc">Dominate attention channels at 10x speed. From cinema-grade AI commercials and viral Short-form videos to high-converting scripts and automated thumbnail variations that maximize CTR.</p>
-          <a href="#contact" class="service-link">Explore Capability &rarr;</a>
-        </div>
-
-        <!-- Card 4 (Left Column - Row 2) -->
-        <div class="service-card" id="service-webdev">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
-          </div>
-          <h3 class="service-title">Website Development</h3>
-          <p class="service-desc">Ultra-premium, hyper-responsive web applications built with flawless execution. We craft sleek dark-mode aesthetics, fluid micro-interactions, and lighting-fast load speeds that impress clients.</p>
-          <a href="#contact" class="service-link">Explore Capability &rarr;</a>
-        </div>
-
-        <!-- Spline 3D Circuit Element (Center Column - Row 2) -->
-        <div class="services-spline-container reveal">
-          <!-- Spline iframe spanning 100% width of the container to enable seamless mask fading -->
-          <iframe src="https://my.spline.design/retrofuturisticcircuitloop-2owdyj2IVlCO0eesijmycHjU/" frameborder="0" style="border: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; pointer-events: auto;"></iframe>
-        </div>
-
-        <!-- Card 6 (Right Column - Row 2) -->
-        <div class="service-card" id="service-funnels">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path></svg>
-          </div>
-          <h3 class="service-title">Funnel Building</h3>
-          <p class="service-desc">Turn visitors into high-ticket clients automatically. We construct multi-step conversion funnels, autonomous follow-up sequences, and strategic persuasive copywriting optimized for lead generation.</p>
-          <a href="#contact" class="service-link">Explore Capability &rarr;</a>
-        </div>
-
-        <!-- Card 5 (Center Column - Row 3) -->
-        <div class="service-card" id="service-branding">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg>
-          </div>
-          <h3 class="service-title">Branding & Design</h3>
-          <p class="service-desc">Forge an unforgettable brand identity. We produce algorithmic logo systems, 3D visual language, brand design tokens, and immersive brand guidelines tailored for futuristic innovators.</p>
-          <a href="#contact" class="service-link">Explore Capability &rarr;</a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- PROCESS / HOW IT WORKS -->
-  <section class="section" id="process">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">How It Works</span>
-        <h2 class="section-title">The Autonomous Growth Blueprint</h2>
-        <p class="section-description">A streamlined 4-stage deployment methodology designed to replace slow agency friction with rapid AI execution.</p>
-      </div>
-      <div class="process-container">
-        <!-- The vertical timeline line track -->
-        <div class="timeline-track">
-          <div class="timeline-progress"></div>
-        </div>
-        
-        <!-- Step 1 -->
-        <div class="timeline-step" id="step-1">
-          <div class="timeline-dot-wrapper">
-            <div class="timeline-dot">01</div>
-          </div>
-          <div class="timeline-content">
-            <h3 class="step-title">Strategy & Audit</h3>
-            <p class="step-desc">We audit your digital footprint and operational funnels to identify where AI models can eliminate bottleneck costs and amplify conversion gains.</p>
-          </div>
-        </div>
-
-        <!-- Step 2 -->
-        <div class="timeline-step" id="step-2">
-          <div class="timeline-dot-wrapper">
-            <div class="timeline-dot">02</div>
-          </div>
-          <div class="timeline-content">
-            <h3 class="step-title">AI Custom Integration</h3>
-            <p class="step-desc">Our engineers deploy bespoke neural agents, training custom models on your brand voice, positioning, and historical customer conversion patterns.</p>
-          </div>
-        </div>
-
-        <!-- Step 3 -->
-        <div class="timeline-step" id="step-3">
-          <div class="timeline-dot-wrapper">
-            <div class="timeline-dot">03</div>
-          </div>
-          <div class="timeline-content">
-            <h3 class="step-title">Autonomous Execution</h3>
-            <p class="step-desc">We launch high-velocity marketing campaigns, content generation pipelines, and high-converting web applications with flawless consistency.</p>
-          </div>
-        </div>
-
-        <!-- Step 4 -->
-        <div class="timeline-step" id="step-4">
-          <div class="timeline-dot-wrapper">
-            <div class="timeline-dot">04</div>
-          </div>
-          <div class="timeline-content">
-            <h3 class="step-title">Hyper-Scaling</h3>
-            <p class="step-desc">As the neural agents gather user data, performance compounds automatically. We scale winning variants while lowering your customer acquisition cost.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PORTFOLIO / PROJECT SHOWCASE -->
-  <section class="section" id="portfolio">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">Proven Work</span>
-        <h2 class="section-title">Next-Gen Case Studies</h2>
-        <p class="section-description">See how Small Gear has revolutionized branding, web infrastructure, and AI automation for industry leaders.</p>
+        <span class="section-tag">Explore Small Gear Inc.</span>
+        <h2 class="section-title">Everything Your Business Needs</h2>
+        <p class="section-description">From custom software engineering to advanced technology solutions — navigate our dedicated sections to discover how we build your digital vision with precision and scale.</p>
       </div>
 
       <div class="portfolio-grid">
         
-        <!-- Project 1 -->
-        <div class="project-card reveal" id="proj-analytics">
-          <div class="project-img-wrapper">
-            <img src="assets/ai_analytics_ui.jpg" alt="AI Analytics Dashboard UI">
-            <div class="project-overlay"></div>
-            <span class="project-metric">+450% Conv. Lift</span>
-          </div>
-          <div class="project-info">
+        <!-- Hub Card 1: Services -->
+        <div class="project-card reveal">
+          <div class="project-info" style="padding: 40px 32px;">
             <div class="project-tags">
-              <span class="project-tag">Neural UI</span>
-              <span class="project-tag">Web Dev</span>
+              <span class="project-tag">6 Core Services</span>
             </div>
-            <h3 class="project-title">Neural Crypto Analytics Engine</h3>
-            <p class="project-desc">Designed a dark-mode real-time trading prediction terminal with glassmorphism overlays and automated customer onboarding funnels.</p>
+            <h3 class="project-title" style="font-size: 1.6rem; margin-top: 10px;">Software &amp; Technology Services</h3>
+            <p class="project-desc" style="margin-bottom: 24px;">Explore our full-stack capabilities: ERP development, CRM &amp; HRM systems, responsive web platforms, mobile apps, AI automations, and blockchain solutions.</p>
+            <a href="services.html" class="btn btn-glow" style="display: inline-flex;">Explore Services &rarr;</a>
           </div>
         </div>
 
-        <!-- Project 2 -->
-        <div class="project-card reveal" id="proj-brand">
-          <div class="project-img-wrapper">
-            <img src="assets/brand_evolution_mockup.jpg" alt="Brand Evolution Mockup">
-            <div class="project-overlay"></div>
-            <span class="project-metric">10x Brand Velocity</span>
-          </div>
-          <div class="project-info">
+        <!-- Hub Card 2: Methodology -->
+        <div class="project-card reveal">
+          <div class="project-info" style="padding: 40px 32px;">
             <div class="project-tags">
-              <span class="project-tag">3D Identity</span>
-              <span class="project-tag">Branding</span>
+              <span class="project-tag">4-Stage Process</span>
             </div>
-            <h3 class="project-title">Synthetix Brand Transformation</h3>
-            <p class="project-desc">Created a dynamic algorithmic design identity and futuristic 3D visual system that boosted venture fundraising success and market dominance.</p>
+            <h3 class="project-title" style="font-size: 1.6rem; margin-top: 10px;">How We Build &amp; Deliver</h3>
+            <p class="project-desc" style="margin-bottom: 24px;">Discover our proven engineering process: Discovery &amp; Scoping, Architecture &amp; Design, Agile Development, and Quality Deployment — built for precision and speed.</p>
+            <a href="process.html" class="btn btn-glow" style="display: inline-flex;">View Process &rarr;</a>
           </div>
         </div>
 
-        <!-- Project 3 -->
-        <div class="project-card reveal" id="proj-video">
-          <div class="project-img-wrapper">
-            <img src="assets/autonomous_video_generator.jpg" alt="Autonomous Video Generator">
-            <div class="project-overlay"></div>
-            <span class="project-metric">1.2M+ Views / Wk</span>
-          </div>
-          <div class="project-info">
+        <!-- Hub Card 3: Showcase -->
+        <div class="project-card reveal">
+          <div class="project-info" style="padding: 40px 32px;">
             <div class="project-tags">
-              <span class="project-tag">AI Video</span>
-              <span class="project-tag">Automation</span>
+              <span class="project-tag">Real Projects</span>
             </div>
-            <h3 class="project-title">Autonomous Cinematic Studio</h3>
-            <p class="project-desc">Architected an automated video production studio that drafts scripts, voiceovers, and dynamic visual thumbnails with zero manual editing required.</p>
+            <h3 class="project-title" style="font-size: 1.6rem; margin-top: 10px;">Project Showcase &amp; Portfolio</h3>
+            <p class="project-desc" style="margin-bottom: 24px;">Explore real-world projects we've delivered — from logistics management platforms and healthcare CRMs to mobile apps and blockchain systems.</p>
+            <a href="portfolio.html" class="btn btn-glow" style="display: inline-flex;">View Projects &rarr;</a>
           </div>
         </div>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- WHY CHOOSE US / BENEFITS & STATS -->
-  <section class="section" id="why-us">
-    <div class="container">
-      <div class="benefits-grid">
-        
-        <div class="benefits-content reveal">
-          <span class="section-tag">The Small Gear Advantage</span>
-          <h3>Why Conventional Agencies Can’t Compete</h3>
-          <p>Traditional digital agencies are bogged down by bureaucracy, human burnout, and inflated overhead. By embedding AI into the foundation of our creative and engineering stack, we unlock unprecedented unfair advantages for your brand.</p>
-        </div>
-
-        <!-- Right Column: Stats Grid -->
-        <div class="why-us-right-col reveal">
-          <!-- Dynamic Counter Stats -->
-          <div class="stats-grid">
-            <div class="stat-box">
-              <div class="stat-number" data-target="98%">0%</div>
-              <div class="stat-label">Client Retention</div>
+        <!-- Hub Card 4: Why Us -->
+        <div class="project-card reveal">
+          <div class="project-info" style="padding: 40px 32px;">
+            <div class="project-tags">
+              <span class="project-tag">The Small Gear Edge</span>
             </div>
-            <div class="stat-box">
-              <div class="stat-number" data-target="10x">0x</div>
-              <div class="stat-label">Faster Deployment</div>
+            <h3 class="project-title" style="font-size: 1.6rem; margin-top: 10px;">Why Choose Small Gear Inc.</h3>
+            <p class="project-desc" style="margin-bottom: 24px;">9+ years of engineering excellence, a dedicated Mumbai-based team, transparent communication, agile delivery, and solutions engineered to scale with your growth.</p>
+            <a href="why-us.html" class="btn btn-glow" style="display: inline-flex;">Learn More &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Hub Card 5: Testimonials -->
+        <div class="project-card reveal">
+          <div class="project-info" style="padding: 40px 32px;">
+            <div class="project-tags">
+              <span class="project-tag">Client Stories</span>
             </div>
-            <div class="stat-box">
-              <div class="stat-number" data-target="150+">0</div>
-              <div class="stat-label">AI Workflows Built</div>
+            <h3 class="project-title" style="font-size: 1.6rem; margin-top: 10px;">Client Testimonials &amp; Reviews</h3>
+            <p class="project-desc" style="margin-bottom: 24px;">Read what business owners, founders, and managers say about working with Small Gear Inc. — real feedback from real projects delivered since 2016.</p>
+            <a href="testimonials.html" class="btn btn-glow" style="display: inline-flex;">Read Reviews &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Hub Card 6: Contact -->
+        <div class="project-card reveal">
+          <div class="project-info" style="padding: 40px 32px;">
+            <div class="project-tags">
+              <span class="project-tag">Free Consultation</span>
             </div>
-            <div class="stat-box">
-              <div class="stat-number" data-target="450%">0%</div>
-              <div class="stat-label">Average ROI Lift</div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Middle: Horizontal Rectangular 3D Spline Diagram spanning the full width -->
-      <div class="why-us-spline-container reveal">
-        <!-- Spline 3D web diagram (Scaled down to prevent camera cropping and show entire plan) -->
-        <iframe src="https://my.spline.design/webdiagram-yLUKKI0uTih8FO1NOaLkic5H/" frameborder="0" style="border: none; position: absolute; top: -20%; left: -20%; width: 140%; height: 140%; z-index: 2; pointer-events: auto; transform: scale(0.7); transform-origin: center center;"></iframe>
-      </div>
-
-      <!-- Bottom: The 4 Benefits Cards in a Single Row (1x4 grid) -->
-      <div class="benefits-list-row reveal">
-        <div class="benefit-item">
-          <div class="benefit-icon">⚡</div>
-          <h4 class="benefit-title">Faster Delivery with AI</h4>
-          <p class="benefit-desc">What takes traditional teams months, our autonomous workflows ship in days.</p>
-        </div>
-
-        <div class="benefit-item">
-          <div class="benefit-icon">💎</div>
-          <h4 class="benefit-title">High-Converting Designs</h4>
-          <p class="benefit-desc">Data-backed UI aesthetics crafted specifically to hook users and maximize conversions.</p>
-        </div>
-
-        <div class="benefit-item">
-          <div class="benefit-icon">📈</div>
-          <h4 class="benefit-title">Automation-Driven Growth</h4>
-          <p class="benefit-desc">Your marketing, content, and lead nurture funnels operate 24/7 without taking days off.</p>
-        </div>
-
-        <div class="benefit-item">
-          <div class="benefit-icon">🎯</div>
-          <h4 class="benefit-title">Cost-Effective Scaling</h4>
-          <p class="benefit-desc">Scale output 10x while eliminating unnecessary overhead and retainers.</p>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS SECTION -->
-  <section class="section" id="testimonials">
-    <div class="container">
-      <span class="section-tag reveal">Innovator Proof</span>
-
-      <!-- Split Hero: Left = stacked testimonials, Right = Spline 3D typography -->
-      <div class="testimonials-hero reveal">
-
-        <!-- LEFT: Stacked testimonial quotes that fill the empty space -->
-        <div class="testimonials-hero-left">
-          <div class="testi-hero-card">
-            <div class="stars">★★★★★</div>
-            <p class="quote-text">"Small Gear redesigned our core SaaS platform and deployed AI marketing funnels. Our demo conversion rate skyrocketed by 480% in the very first month."</p>
-            <div class="client-author">
-              <div class="client-avatar">A</div>
-              <div class="client-info">
-                <h4>Alexandre Vance</h4>
-                <p>CEO, Quantum Cloud Labs</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="testi-hero-card">
-            <div class="stars">★★★★★</div>
-            <p class="quote-text">"We replaced three traditional marketing agencies with Small Gear's autonomous content workflows. The consistency, cinematic aesthetics, and ROI are on a completely different planet."</p>
-            <div class="client-author">
-              <div class="client-avatar">S</div>
-              <div class="client-info">
-                <h4>Sophia Lin</h4>
-                <p>Founder, Synthetix Health</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- RIGHT: Spline 3D Distorting Typography lives here -->
-        <div class="testimonials-hero-right">
-          <div class="testimonials-spline-title">
-            <iframe src="https://my.spline.design/distortingtypography-th639YKvzEkNvlAJieBqtoOs/" frameborder="0" style="border: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; pointer-events: auto;"></iframe>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Bottom expanded 6-card testimonials grid -->
-      <div class="testimonials-grid reveal">
-
-        <div class="testimonial-card" id="testi-1">
-          <div>
-            <div class="stars">★★★★★</div>
-            <p class="quote-text">"Their team combines state-of-the-art AI automation with luxury design taste. Our user acquisition costs dropped 62% while our output increased tenfold. True wizards."</p>
-          </div>
-          <div class="client-author">
-            <div class="client-avatar">M</div>
-            <div class="client-info"><h4>Marcus Thorne</h4><p>VP of Growth, Hyperion AI</p></div>
-          </div>
-        </div>
-
-        <div class="testimonial-card" id="testi-2">
-          <div>
-            <div class="stars">★★★★★</div>
-            <p class="quote-text">"Within 6 weeks, Small Gear built and launched our entire go-to-market funnel with AI-generated content. We closed our first enterprise deal the same month. Unreal speed."</p>
-          </div>
-          <div class="client-author">
-            <div class="client-avatar">J</div>
-            <div class="client-info"><h4>James Okoro</h4><p>Co-Founder, Nexlayer Labs</p></div>
-          </div>
-        </div>
-
-        <div class="testimonial-card" id="testi-3">
-          <div>
-            <div class="stars">★★★★★</div>
-            <p class="quote-text">"The branding system Small Gear built for us became the foundation of our Series A pitch. Investors kept commenting on our visual identity. Worth every penny and more."</p>
-          </div>
-          <div class="client-author">
-            <div class="client-avatar">P</div>
-            <div class="client-info"><h4>Priya Nair</h4><p>Founder, Auroratech SaaS</p></div>
-          </div>
-        </div>
-
-        <div class="testimonial-card" id="testi-4">
-          <div>
-            <div class="stars">★★★★★</div>
-            <p class="quote-text">"Small Gear's AI automation replaced a 6-person team. Response time went from 48 hours to under 2 minutes. Our clients can't believe how fast and polished everything is."</p>
-          </div>
-          <div class="client-author">
-            <div class="client-avatar">R</div>
-            <div class="client-info"><h4>Rafael Costa</h4><p>CEO, Velocify Digital</p></div>
-          </div>
-        </div>
-
-        <div class="testimonial-card" id="testi-5">
-          <div>
-            <div class="stars">★★★★★</div>
-            <p class="quote-text">"They built us a fully automated video pipeline that generates 30 short-form videos per week. Our social following tripled in 90 days. Small Gear is the future of content."</p>
-          </div>
-          <div class="client-author">
-            <div class="client-avatar">L</div>
-            <div class="client-info"><h4>Lena Müller</h4><p>CMO, Orbis Creative</p></div>
-          </div>
-        </div>
-
-        <div class="testimonial-card" id="testi-6">
-          <div>
-            <div class="stars">★★★★★</div>
-            <p class="quote-text">"From website to funnel to email sequences — everything AI-powered, everything converting. Our revenue grew 3x in four months. I recommend Small Gear to every founder I know."</p>
-          </div>
-          <div class="client-author">
-            <div class="client-avatar">K</div>
-            <div class="client-info"><h4>Kevin Zhang</h4><p>Founder, PulseFlow CRM</p></div>
+            <h3 class="project-title" style="font-size: 1.6rem; margin-top: 10px;">Start Your Project Today</h3>
+            <p class="project-desc" style="margin-bottom: 24px;">Schedule a free consultation with our engineering team. We'll understand your requirements, provide a detailed scope, and propose the best architecture for your vision.</p>
+            <a href="contact.html" class="btn btn-glow" style="display: inline-flex;">Get In Touch &rarr;</a>
           </div>
         </div>
 
@@ -493,10 +227,10 @@
   <section class="cta-section" id="contact">
     <div class="container">
       <div class="cta-container reveal">
-        <h2 class="cta-title">Ready to Scale Your Business with AI?</h2>
-        <p class="cta-desc">Stop losing ground to traditional inefficiencies. Partner with Small Gear to architect your AI superpower today.</p>
+        <h2 class="cta-title">Ready to Build Your Digital Vision?</h2>
+        <p class="cta-desc">Partner with Small Gear Inc. — Mumbai's trusted software engineering firm since 2016. Let's craft scalable, reliable digital solutions together.</p>
         <div class="cta-btn-wrapper">
-          <a href="mailto:contact@smallgear.ai?subject=Consultation%20Inquiry" class="btn btn-glow btn-lg" id="final-cta-btn">
+          <a href="contact.html" class="btn btn-glow btn-lg" id="final-cta-btn">
             <span>Book a Free Consultation</span>
             <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
           </a>
@@ -509,54 +243,54 @@
   <footer class="footer">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="#" class="brand-logo">
-          <div class="logo-icon">SG</div>
+        <a href="index.html" class="brand-logo">
+          <img src="assets/logo.png" alt="Small Gear Logo" class="logo-img">
           <span>Small Gear</span>
         </a>
-        <p>Architecting autonomous digital superpowers for next-generation enterprises through cutting-edge AI design, automation, and conversion funnels.</p>
+        <p>Mumbai-based software engineering firm crafting highly scalable digital architectures since 2016. Building your digital vision — one solution at a time.</p>
       </div>
 
       <div class="footer-col">
         <h5>Services</h5>
         <ul>
-          <li><a href="#service-automation">AI Automation</a></li>
-          <li><a href="#service-marketing">Digital Marketing</a></li>
-          <li><a href="#service-content">Content Creation</a></li>
-          <li><a href="#service-webdev">Website Development</a></li>
-          <li><a href="#service-branding">Branding & Design</a></li>
-          <li><a href="#service-funnels">Funnel Building</a></li>
+          <li><a href="services.html#service-erp">ERP Development</a></li>
+          <li><a href="services.html#service-crm">CRM &amp; HRM Systems</a></li>
+          <li><a href="services.html#service-web">Web Platforms</a></li>
+          <li><a href="services.html#service-mobile">Mobile App Development</a></li>
+          <li><a href="services.html#service-ai">AI &amp; Automation</a></li>
+          <li><a href="services.html#service-blockchain">Blockchain Solutions</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
         <h5>Company</h5>
         <ul>
-          <li><a href="#home">About Us</a></li>
-          <li><a href="#process">Our Methodology</a></li>
-          <li><a href="#portfolio">Case Studies</a></li>
-          <li><a href="#testimonials">Reviews</a></li>
-          <li><a href="#contact">Careers <span style="color: var(--neon-blue); font-size: 0.7rem; background: rgba(0,242,254,0.15); padding: 2px 6px; border-radius: 4px;">HIRING</span></a></li>
+          <li><a href="index.html">About Us</a></li>
+          <li><a href="process.html">Our Process</a></li>
+          <li><a href="portfolio.html">Projects</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
+          <li><a href="contact.html">Careers <span style="color: var(--neon-blue); font-size: 0.7rem; background: rgba(0,242,254,0.15); padding: 2px 6px; border-radius: 4px;">HIRING</span></a></li>
         </ul>
       </div>
 
       <div class="footer-col">
         <h5>Connect</h5>
         <ul>
-          <li><a href="mailto:contact@smallgear.ai">contact@smallgear.ai</a></li>
-          <li><a href="#">San Francisco, CA & Global</a></li>
-          <li><a href="#">X / Twitter</a></li>
+          <li><a href="tel:+919370967779">+91 9370967779</a></li>
+          <li><a href="tel:+919766729490">+91 9766729490</a></li>
+          <li><a href="#">Mira Road (East), Mumbai</a></li>
           <li><a href="#">LinkedIn</a></li>
-          <li><a href="#">GitHub</a></li>
+          <li><a href="#">Instagram</a></li>
         </ul>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <div>&copy; 2026 Small Gear AI Agency. All rights reserved. Built with advanced AI instrumentation.</div>
+      <div>&copy; 2026 Small Gear Inc. All rights reserved. Mumbai, India &mdash; Operating since 2016.</div>
       <div class="social-icons">
-        <a href="#" aria-label="Twitter" class="social-icon">𝕏</a>
         <a href="#" aria-label="LinkedIn" class="social-icon">in</a>
-        <a href="#" aria-label="Discord" class="social-icon">◈</a>
+        <a href="#" aria-label="Instagram" class="social-icon">◎</a>
+        <a href="#" aria-label="WhatsApp" class="social-icon">✆</a>
       </div>
     </div>
   </footer>
